@@ -12,7 +12,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        SM_VERSION: ["1.10", "1.11"]
+        SM_VERSION: ["1.10"]
 
     steps:
       - uses: actions/checkout@v2
@@ -33,4 +33,5 @@ jobs:
             echo -e "\nCompiling $file..."
             spcomp -E -w234 -O2 -v2 -i include $file
           done
+        shell: bash
         working-directory: ${{ env.SCRIPTS_PATH }}
