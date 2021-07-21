@@ -1,0 +1,17 @@
+[Unit]
+Description=Telegram bot for CSGO Stat
+After=syslog.target
+After=network.target
+
+[Service]
+RestartSec=2s
+Type=simple
+User=csgostatbot
+Group=csgostatbot
+WorkingDirectory=/home/csgoserver/csgostatbot/
+ExecStart=/home/csgoserver/csgostatbot/venv/bin/python /home/csgoserver/csgostatbot/csgostatbot.py
+Restart=always
+Environment=USER=csgoserver HOME=/home/csgoserver
+
+[Install]
+WantedBy=multi-user.target
