@@ -30,8 +30,9 @@ jobs:
         run: |
           for file in scripting/csgostat*.sp
           do
-            echo -e "\nCompiling $file..."
-            spcomp -E -w234 -O2 -v2 -i include $file
+            _abs_path=$(realpath $file)
+            echo -e "\nCompiling $_abs_path..."
+            spcomp -E -w234 -O2 -v2 -i include $_abs_path
           done
         shell: bash
         working-directory: ${{ env.SCRIPTS_PATH }}
